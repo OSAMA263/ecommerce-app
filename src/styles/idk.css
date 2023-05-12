@@ -1,0 +1,132 @@
+/* for the whole fokin site lads */
+/* figure out whaht does what gl */
+/* about */
+.about::after {
+  margin-top: 4rem;
+  content: "";
+  display: block;
+  width: 25%;
+  height: 1px;
+  background-color: rgb(182, 182, 182);
+  margin-inline: auto;
+}
+/* navbar */
+.nav-link {
+  font-size: 1.1rem;
+}
+/* home page */
+.discover_more {
+  text-decoration: none;
+  color: black;
+  transition: 0.5s ease;
+}
+.discover_more::after {
+  content: "";
+  position: relative;
+  display: block;
+  width: 20%;
+  background-color: black;
+  height: 2px;
+  transition: 0.5s ease;
+}
+.discover_more:hover {
+  color: rgb(44, 44, 44);
+}
+.discover_more:hover::after {
+  width: 100%;
+  background-color: red;
+}
+@media only screen and (max-width: 720px){
+  #hero-home{
+    width: 250px;
+    overflow: hidden;
+    background-size: contain;
+  }
+}
+/* flip card */
+.flip-card:hover > .card {
+  cursor: pointer;
+  transform: rotateY(-180deg);
+}
+.card-front,
+.card-back {  backface-visibility: hidden;
+
+}
+.card-back {
+  transform: rotateY(-180deg);
+}
+/* products */
+img {
+  transition: 0.4s cubic-bezier(0, -1.55, 1, -0.49);
+}
+#option-btns {
+  transition: 0.5s ease, opacity 0.3s;
+  margin-right: -2.2rem;
+  opacity: 0;
+}
+#product:hover #option-btns {
+  margin-right: 0;
+  opacity: 1;
+}
+#product{
+transition: .5s ease;
+}
+.card{
+  transition: .5s ease;
+}
+#product:hover >.card{
+  scale: 1.04;
+  box-shadow:0 .5rem 1rem rgba(0,0,0,.15)!important
+}
+/* product details */
+#detail-imgs {
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+img.active {
+  border: 1px gray solid;
+  scale: 1.1;
+  opacity: 50%;
+}
+.pro-details-imgs:hover {
+  opacity: 70%;
+  border: 1px gray solid;
+}
+@media only screen and (max-width: 1168px) {
+  #displayed-image{
+    width: 210px;
+    height: 230px;
+  }
+}
+/* footer */
+/* #twitter-link::before {
+  content: "";
+  background-image: url("react-icons/ai");
+  display: block;
+  background-size: cover;
+  width: 100%;
+  margin: auto;
+  height: 0;
+  border-bottom: 1px black solid;
+  background-repeat: no-repeat;
+  transition: 0.8s ease;
+  position: absolute;
+}
+#facbook-link:hover::before,#instagram-link:hover::before,#twitter-link:hover::before {
+  height: 100%;
+} */
+#facebook-link,
+#instagram-link,
+#twitter-link {
+  cursor: pointer;
+  transition: background 0.4s ease;
+}
+#facebook-link:hover,
+#twitter-link:hover,
+#instagram-link:hover {
+  color: black !important;
+  background: white !important;
+}
+.btn {
+  transition: 0.5s ease;
+}
