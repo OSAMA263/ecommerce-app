@@ -1,7 +1,7 @@
 {
-  "name": "",
+  "name": "ecommerce-app",
   "version": "0.1.0",
-  "homepage": "https://OSAMA263.github.io/",
+  "homepage": "https://OSAMA263.github.io/ecommerce-app",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
