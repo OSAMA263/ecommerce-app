@@ -12,6 +12,8 @@ import About from "./components/pages/about";
 import { Route, Routes } from "react-router-dom";
 import ViewProduct from "./components/ViewProduct";
 import { AnimatePresence } from "framer-motion";
+import ScrollToTopBtn from "./components/ScrollToTopBtn";
+import CheckOutComp from "./components/CheckOutComp"
 
 export const imgHeroStyle = {
   maxHeight: "75vh",
@@ -22,6 +24,7 @@ export const imgHeroStyle = {
 function App() {
   return (
     <div className="App">
+      <ScrollToTopBtn />
       <Navbar />
       <SideCart />
       <AnimatePresence>
@@ -30,6 +33,7 @@ function App() {
           <Route path="/products" element={<Products />}></Route>
           <Route path="/products/:productID" element={<ViewProduct />}></Route>
           <Route path="/about" element={<About />}></Route>
+          <Route path="/checkout" element={<CheckOutComp/>}></Route>
         </Routes>
       </AnimatePresence>
       <Footer />

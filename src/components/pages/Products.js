@@ -76,11 +76,11 @@ export default function Products() {
           }}
         >
           <div className="vh-75 d-flex justify-content-evenly align-items-center container-fluid-xl">
-            <div className="w-50 d-none d-md-block h-xl-100 h-75 mt-auto overflow-hidden d-flex">
+            <div className="w-lg-50 w-75 d-none d-md-block h-xl-100 h-75 mt-auto overflow-hidden d-flex">
               {/*=========== header ===========*/}
               <img
                 src={background}
-                className="w-xl-auto w-85 h-100 mt-auto"
+                className="w-lg-auto h-100 mt-auto"
                 alt=""
                 style={imgHeroStyle}
               />
@@ -131,7 +131,7 @@ export default function Products() {
               onChange={(e) => {
                 selectFilterHandler(e.target.value);
               }}
-              className="w-100 form-select my-5 bg-dark text-light d-blobk d-md-none"
+              className="w-100 form-select my-3 bg-dark text-light d-blobk d-md-none"
             >
               <option value={"all"}>all</option>
               {categories.map((cat, i) => (
@@ -181,7 +181,7 @@ export default function Products() {
                       <button
                         onClick={() => {
                           dispatch(AddToCart(pro));
-                          // setAlertVisible(true);
+                          setAlertVisible(true);
                         }}
                         className="fs-3 rounded-0 border-0 btn btn-danger"
                       >

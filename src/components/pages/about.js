@@ -25,7 +25,7 @@ export default function About() {
               src={background}
               style={imgHeroStyle}
               alt=""
-              className="w-sm-auto h-md-auto mt-auto d-none d-sm-block h-85 "
+              className="w-sm-auto w-lg-75 h-md-auto mt-auto d-none d-sm-block h-85 "
             />
             <div className="text-uppercase w-100 text-center gap-3 d-flex flex-column d-sm-none">
               <p className="fs-3 lead">about us</p>

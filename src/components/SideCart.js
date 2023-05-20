@@ -14,7 +14,7 @@ export default function SideCart() {
   const dispatch = useDispatch();
 
   return (
-    <div id="sideBar" className="offcanvas  offcanvas-start">
+    <div id="sideBar" className="offcanvas offcanvas-start">
       <div className="offcanvas-header border-bottom shadow">
         <h5 className="offcanvas-title">
           items in cart (
@@ -23,9 +23,9 @@ export default function SideCart() {
           </span>
           )
         </h5>
-        <Link className="text-dark" data-bs-dismiss="offcanvas">
+        <button className="text-dark btn " data-bs-dismiss="offcanvas">
           <FaArrowRight />
-        </Link>
+        </button>
       </div>
       <div className="offcanvas-body">
         {/*========== products in cart====== */}
@@ -111,7 +111,8 @@ export default function SideCart() {
             remove all
           </button>
         </div>
-        <button className="btn btn-dark">checkout</button>
+        <div className="d-flex" data-bs-dismiss="offcanvas" >
+        <Link  to="/checkout" className="btn btn-dark w-100">checkout</Link></div>
       </div>
     </div>
   );
