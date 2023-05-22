@@ -14,7 +14,7 @@ export default function SideCart() {
   const dispatch = useDispatch();
 
   return (
-    <div id="sideBar" className="w-auto offcanvas offcanvas-start">
+    <div id="sideBar" className="offcanvas offcanvas-start">
       <div className="offcanvas-header border-bottom shadow">
         <h5 className="offcanvas-title">
           items in cart (
@@ -27,7 +27,7 @@ export default function SideCart() {
           <FaArrowRight />
         </button>
       </div>
-      <div className="offcanvas-body">
+      <div className="offcanvas-body p-0 p-sm-3">
         {/*========== products in cart====== */}
         <div className="cart d-flex flex-column gap-5">
           {cart.map((pro) => (

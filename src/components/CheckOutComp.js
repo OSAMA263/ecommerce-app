@@ -158,7 +158,6 @@ export default function CheckOutComp() {
                 className="w-100 btn btn-primary"
                 data-bs-target="#Modal"
                 data-bs-toggle
-                onClick={() => setIsActive(true)}
                 type="submit"
               >
                 Place Order
@@ -181,7 +180,7 @@ export default function CheckOutComp() {
               {products.map(({ title, price, qty, id }) => (
                 <tr className="fw-semibold" key={id}>
                   <td className=" w-35">{title}</td>
-                  <td>{price} $</td>
+                  <td>{price.toFixed(2)} $</td>
                   <td>{qty}</td>
                   <td>{price * qty} $</td>
                 </tr>
