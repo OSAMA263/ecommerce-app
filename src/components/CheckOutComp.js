@@ -59,6 +59,7 @@ export default function CheckOutComp() {
                 First Name
               </label>
               <input
+              required
                 onChange={updateData}
                 name="FirstName"
                 className="form-control"
@@ -71,6 +72,7 @@ export default function CheckOutComp() {
                 Last Name
               </label>
               <input
+              required
                 onChange={updateData}
                 name="LastName"
                 className="form-control"
@@ -83,6 +85,7 @@ export default function CheckOutComp() {
                 Phone Number
               </label>
               <input
+              required
                 onChange={updateData}
                 name="PhoneNumber"
                 className="form-control"
@@ -95,6 +98,7 @@ export default function CheckOutComp() {
                 Email Address
               </label>
               <input
+              required
                 onChange={updateData}
                 name="Email"
                 className="form-control"
@@ -117,6 +121,7 @@ export default function CheckOutComp() {
                 City
               </label>
               <input
+              required
                 onChange={updateData}
                 name="city"
                 type="text"
@@ -128,6 +133,7 @@ export default function CheckOutComp() {
                 State
               </label>
               <input
+              required
                 onChange={updateData}
                 name="state"
                 type="text"
@@ -139,6 +145,7 @@ export default function CheckOutComp() {
                 Zip Code
               </label>
               <input
+              required
                 onChange={updateData}
                 maxLength="5"
                 name="Zcode"

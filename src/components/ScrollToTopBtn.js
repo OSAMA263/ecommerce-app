@@ -15,7 +15,7 @@ export default function ScrollToTopBtn() {
         window.scrollTo(0, 0);
       }}
       style={{ transition: "all .5s ease" }}
-      className={`position-fixed bottom-0 end-0 mb-sm-5 me-sm-5 rounded-pill btn btn-dark px-2 py-1 border-2 border border-dark ${
+      className={`position-fixed bottom-0 end-0 mb-3 me-3 mb-sm-5 me-sm-5 rounded-pill btn btn-dark px-2 py-1 border-2 border border-dark ${
         !displayed && "invisible opacity-0"
       }`}
     >

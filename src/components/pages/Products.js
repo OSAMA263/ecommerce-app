@@ -80,7 +80,7 @@ export default function Products() {
               {/*=========== header ===========*/}
               <img
                 src={background}
-                className="w-lg-auto h-100 mt-auto"
+                className="w-100 h-100 mt-auto"
                 alt=""
                 style={imgHeroStyle}
               />
