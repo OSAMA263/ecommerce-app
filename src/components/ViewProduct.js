@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AddToCart } from "../rtk/slices/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { FaCheck } from "react-icons/fa";
 import diplayedImg2 from "../imgs/pro-details-img2.png";
 import diplayedImg3 from "../imgs/pro-details-img3.png";
 import { RxPlusCircled } from "react-icons/rx";
 import { motion } from "framer-motion";
+import { ToastContainer, toast } from "react-toastify";
 
 // view products simler to the category============================================
 export default function ViewProduct() {
@@ -24,10 +24,17 @@ export default function ViewProduct() {
   }, [productID]);
 
   // alert
-  const [alertVisible, setAlertVisible] = useState(false);
-  setTimeout(() => {
-    setAlertVisible(false);
-  }, 4000);
+  const notify = (title) =>
+    toast.success(title, {
+      position: "bottom-left",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+      theme: "light",
+    });
 
   // update the LS cart
   const cart = useSelector((state) => state.cart);
@@ -92,8 +99,8 @@ export default function ViewProduct() {
               <p className="text-muted fw-semibold">{product.description}</p>
               <button
                 onClick={() => {
-                  dispatch(AddToCart(product));
-                  setAlertVisible(true);
+                  dispatch(AddToCart(product));                             
+                  notify(product.title);
                 }}
                 className="btn-dark btn text-light mx-auto w-50 fw-semibold"
               >
@@ -102,14 +109,19 @@ export default function ViewProduct() {
             </div>
             {/*================= alert ============*/}
             <div className="position-fixed w-auto justify-content-end p-6 start-0 d-flex flex-column h-50 bottom-0">
-              {alertVisible && (
-                <div className="alert alert-success">
-                  <span className="fs-5 text-success">
-                    <FaCheck />
-                  </span>
-                  item added to cart
-                </div>
-              )}
+            <ToastContainer
+                position="bottom-left"
+                autoClose={2000}
+                limit={8}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+              />
             </div>
           </div>
         </div>

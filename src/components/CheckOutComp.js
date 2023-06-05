@@ -92,7 +92,7 @@ export default function CheckOutComp() {
       )}
       <div className="container-md">
         <div
-          style={{ backgroundColor: "rgba(60, 60, 60, 0.06)" }}
+          style={{ backgroundColor: "rgba(60, 60, 60, 0.06)"}}
           className="my-8 row h-100 mx-auto d-flex rounded-4 justify-content-between "
         >
           <div className="border col-lg-7 col-12 rounded-2 p-3">
@@ -142,7 +142,7 @@ export default function CheckOutComp() {
             </motion.form>
           </div>
           {/* products in order */}
-          <div className="col-lg-5 col-12">
+          <div className="col-lg-5 col-12 overflow-scroll" style={{height:"457px",overflowX:"hidden"}}>
             <table className="table table-striped">
               <thead>
                 <tr>

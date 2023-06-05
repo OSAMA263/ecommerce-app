@@ -7,9 +7,10 @@ import { fetchProducts } from "../../rtk/slices/ProductsSlice";
 import { RxPlusCircled } from "react-icons/rx";
 import { AddToCart } from "../../rtk/slices/CartSlice";
 import { IoIosEye } from "react-icons/io";
-import { FaCheck } from "react-icons/fa";
 import Pagination from "../Pagination";
 import { AnimatePresence, motion } from "framer-motion";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Products() {
   const dispatch = useDispatch();
@@ -34,9 +35,17 @@ export default function Products() {
   }, []);
 
   // alert
-  setTimeout(() => {
-    setAlertVisible(false);
-  }, 4000);
+  const notify = (title) =>
+    toast.success(title, {
+      position: "bottom-left",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+      theme: "light",
+    });
 
   //filter product
   const btnsFilterHandler = (cat) => {
@@ -227,7 +236,7 @@ export default function Products() {
                           <button
                             onClick={() => {
                               dispatch(AddToCart(pro));
-                              setAlertVisible(true);
+                              notify(pro.title);
                             }}
                             className="fs-3 rounded-0 border-0 btn btn-danger"
                           >
@@ -252,14 +261,19 @@ export default function Products() {
             )}
             {/*=============== alert ========*/}
             <div className="position-fixed w-auto justify-content-end p-6 start-0 d-flex flex-column h-50 bottom-0">
-              {alertVisible && (
-                <div className="alert alert-success">
-                  <span className="fs-5 text-success">
-                    <FaCheck />
-                  </span>
-                  item added to cart
-                </div>
-              )}
+              <ToastContainer
+                position="bottom-left"
+                autoClose={2000}
+                limit={8}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+              />
             </div>
             {/* =========pages============= */}
             <div className="d-flex gap-3 justify-content-center align-items-center">
