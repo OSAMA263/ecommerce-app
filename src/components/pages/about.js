@@ -29,7 +29,12 @@ export default function About() {
             />
             <div className="text-uppercase w-100 text-center gap-3 d-flex flex-column d-sm-none">
               <p className="fs-3 lead">about us</p>
-              <h1 style={{fontFamily:"Papyrus"}} className="fw-semibold display-1 lead ">company name</h1>
+              <h1
+                style={{ fontFamily: "Papyrus" }}
+                className="fw-semibold display-1 lead "
+              >
+                company name
+              </h1>
               <p className="fs-3 lead">is the right choice</p>
             </div>
           </div>
@@ -46,8 +51,8 @@ export default function About() {
           </p>
         </div>
         {/* =========== */}
-        <div className="container text-center">
-          <div className="row align-items-center justify-content-between border-bottom border-2 my-6 pb-6">
+        <div className="" style={{ backgroundColor: "#ffefed" }}>
+          <div className="row mx-auto text-center container align-items-center justify-content-between border-bottom border-2 my-6 pb-6">
             <div className="col-md-5 col-12 my-4">
               <img className="w-md-65 w-100 h-100" src={about2} alt="" />
             </div>
@@ -62,24 +67,26 @@ export default function About() {
               </p>
             </div>
           </div>
-          {/* =========== */}
-          <div className="row align-items-center justify-content-between border-bottom border-2 my-6 pb-6">
-            <div className="col-md-5 col-15">
-              <h4 className="fw-bold text-capitalize mb-4">Lorem, ipsum.</h4>
-              <p className="fw-semibold lh-md lean">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
-                natus accusamus doloremque nam hic perspiciatis quas recusandae
-                aliquid necessitatibus, possimus mollitia veniam cum doloribus
-                laborum, quis ipsum ab? Numquam nihil voluptates quisquam
-                laboriosam natus officiis esse, nesciunt sequi quam nobis.
-              </p>
-            </div>
-            <div className="col-md-5 col-12 my-4">
-              <img className="w-md-65 w-100 h-100" src={about1} alt="" />
-            </div>
+        </div>
+        {/* =========== */}
+        <div className="row mx-auto text-center container align-items-center justify-content-between border-bottom border-2 my-6 pb-6">
+          <div className="col-md-5 col-15">
+            <h4 className="fw-bold text-capitalize mb-4">Lorem, ipsum.</h4>
+            <p className="fw-semibold lh-md lean">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque
+              natus accusamus doloremque nam hic perspiciatis quas recusandae
+              aliquid necessitatibus, possimus mollitia veniam cum doloribus
+              laborum, quis ipsum ab? Numquam nihil voluptates quisquam
+              laboriosam natus officiis esse, nesciunt sequi quam nobis.
+            </p>
           </div>
-          {/* =========== */}
-          <div className="row align-items-center justify-content-between border-bottom border-2 my-6 pb-6">
+          <div className="col-md-5 col-12 my-4">
+            <img className="w-md-65 w-100 h-100" src={about1} alt="" />
+          </div>
+        </div>
+        {/* =========== */}
+        <div className="" style={{ backgroundColor: "#ffefed" }}>
+          <div className="row mx-auto text-center container align-items-center justify-content-between border-bottom border-2 my-6 pb-6">
             <div className="col-md-5 col-12 my-4">
               <img className="w-md-65 w-100 h-100" src={about3} alt="" />
             </div>

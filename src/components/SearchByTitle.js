@@ -22,7 +22,7 @@ export default function SearchByTitle() {
         ref={input}
         type="search"
         placeholder="Search..."
-        className="form-control"
+        className="form-control rounded-pill bg-secondary bg-opacity-25"
         onChange={(e) => filterhanlder(e)}
       />
       <div

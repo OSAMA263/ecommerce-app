@@ -137,12 +137,14 @@ img.active {
 /* checkout */
 #modal {
   transition: 0.5s ease;
-  visibility: hidden;
-  opacity: 0;
   z-index: 69696969;
   background-color: rgba(14, 14, 14, 0.445);
 }
 #modal-body {
   background-color: #fff;
   height: 9rem;
+}
+.form-control:focus{
+  box-shadow: 0 0 5px .5px #248c46!important;
+  outline:0px!important;
 }

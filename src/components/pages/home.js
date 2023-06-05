@@ -49,6 +49,7 @@ export default function Home() {
             new products
           </h1>
         </div>
+        <div className="mt-3" style={{backgroundColor:"rgba(245, 238, 231, 0.71)"}}>
         <div className="row justify-content-evenly gap-3 g-3 w-65 mx-auto">
           <div className="front-card"></div>
           <div className="back-card"></div>
@@ -78,7 +79,7 @@ export default function Home() {
                         more details
                       </Link>
                     </div>
-                    <div className="card-front border rounded-5 position-absolute p-3 h-100 w-100 d-flex justify-content-center">
+                    <div className="card-front rounded-5 position-absolute p-3 h-100 w-100 d-flex justify-content-center">
                       <img className="w-100" src={pro.image} alt="" />
                     </div>
                   </div>
@@ -90,7 +91,7 @@ export default function Home() {
               <h3 className="fw-bold">Loading...</h3>
             </div>
           )}
-        </div>
+        </div></div>
       </section>
     </motion.div>
   );

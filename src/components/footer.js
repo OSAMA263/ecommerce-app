@@ -32,7 +32,7 @@ export default function Footer() {
           </ul>
         </div>
         <h5 className="text-light text-capitalize">
-          copright @ecommerce shop 2023. all rights reserved
+        design by osam263 shop 2023. all rights reserved
         </h5>
       </div>
     </footer>

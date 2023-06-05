@@ -9,7 +9,7 @@ import { AddToCart } from "../../rtk/slices/CartSlice";
 import { IoIosEye } from "react-icons/io";
 import { FaCheck } from "react-icons/fa";
 import Pagination from "../Pagination";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Products() {
   const dispatch = useDispatch();
@@ -63,6 +63,38 @@ export default function Products() {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
+  // animation products
+  const parentVariants = {
+    init: {
+      opacity: 0,
+    },
+    animate: {
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.4,
+        delay: 0.4,
+      },
+    },
+  };
+  const productVariants = {
+    init: {
+      x: -50,
+      opacity: 0,
+    },
+    animate: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.4,
+      },
+    },
+    exit: {
+      x: 50,
+      opacity: 0,
+    },
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -101,7 +133,7 @@ export default function Products() {
           <div className="d-none d-md-flex gap-3 bg-secondary d-flex mx-auto p-2 rounded bg-opacity-25 ">
             {categories.map((cat) => (
               <button
-                className={`btn px-3 fw-semibold ${
+                className={`btn px-3 fw-semibold rounded-pill ${
                   isActive === cat ? "btn-dark" : "btn-secondary"
                 }`}
                 key={cat}
@@ -110,11 +142,16 @@ export default function Products() {
                   setIsActive(cat);
                 }}
               >
-                {cat}
+                {cat} (
+                {
+                  products.filter((pro) => pro.category === cat && products)
+                    .length
+                }
+                )
               </button>
             ))}
             <button
-              className={`btn px-3 fw-semibold ${
+              className={`btn px-3 fw-semibold rounded-pill ${
                 isActive === "all" ? "btn-dark" : "btn-secondary"
               }`}
               onClick={() => {
@@ -122,11 +159,11 @@ export default function Products() {
                 setIsActive("all");
               }}
             >
-              all
+              all ({products.length})
             </button>
           </div>
-            {/* mobile filter */}
-            <div className="d-flex w-35 mx-auto">
+          {/* mobile filter */}
+          <div className="d-flex w-35 mx-auto">
             <select
               onChange={(e) => {
                 selectFilterHandler(e.target.value);
@@ -139,90 +176,101 @@ export default function Products() {
                   {cat}
                 </option>
               ))}
-            </select></div>
+            </select>
+          </div>
         </div>
-        <div className="row mt-6 justify-content-evenly gap-4 g-3 w-md-75 w-sm-50 w-85 mx-auto">
-          {/*=========== display products ===========*/}
-          {currentItems.length > 0 ? (
-            currentItems.map((pro) => (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                key={pro.id}
-                className="col-xl-3 col-md-5"
-                id="product"
-              >
-                <div className="card shadow-sm rounded-top rounded-5 border position-relative h-100 py-3 px-3">
-                  <img
-                    width={160}
-                    height={140}
-                    src={pro.image}
-                    alt="img didnt load bruv"
-                    className="card-img-to"
-                  />
-                  <div className="card-body px-0 pt-4 d-flex flex-column">
-                    <div className="mt-auto">
-                      <p className="text-muted mt-3">{pro.category}</p>
-                      <h5 className="fw-semibold">
-                        {pro.title.length > 30
-                          ? pro.title.slice(0, 30) + "..."
-                          : pro.title}
-                      </h5>
-                      <p className="fw-semibold m-0 text-danger-emphasis">
-                        {pro.price} $
-                      </p>
+        <div className="py-3" style={{ backgroundColor: "#f5f5f5" }}>
+          <motion.div
+            variants={parentVariants}
+            initial="init"
+            animate="animate"
+            className="row mt-6 justify-content-evenly gap-4 g-3 w-md-75 w-sm-50 w-85 mx-auto"
+          >
+            {/*=========== display products ===========*/}
+            {currentItems.length > 0 ? (
+              <AnimatePresence mode="wait">
+                {currentItems.map((pro) => (
+                  <motion.div
+                    variants={productVariants}
+                    initial="init"
+                    animate="animate"
+                    exit="exit"
+                    key={pro.id}
+                    className="col-xl-3 col-md-5"
+                    id="product"
+                  >
+                    <div className="card shadow-sm rounded-top rounded-5 border position-relative h-100 py-3 px-3">
+                      <img
+                        width={160}
+                        height={140}
+                        src={pro.image}
+                        alt="img didnt load bruv"
+                        className="card-img-to"
+                      />
+                      <div className="card-body px-0 pt-4 d-flex flex-column">
+                        <div className="mt-auto">
+                          <p className="text-muted mt-3">{pro.category}</p>
+                          <h5 className="fw-semibold">
+                            {pro.title.length > 30
+                              ? pro.title.slice(0, 30) + "..."
+                              : pro.title}
+                          </h5>
+                          <p className="fw-semibold m-0 text-danger-emphasis">
+                            {pro.price} $
+                          </p>
+                        </div>
+                        <div
+                          id="option-btns"
+                          className="position-absolute btn-group overflow-hidden rounded-start top-0 d-flex flex-column end-0"
+                        >
+                          {/*=========== add to cart btn ===========*/}
+                          <button
+                            onClick={() => {
+                              dispatch(AddToCart(pro));
+                              setAlertVisible(true);
+                            }}
+                            className="fs-3 rounded-0 border-0 btn btn-danger"
+                          >
+                            <RxPlusCircled />
+                          </button>
+                          <Link
+                            to={`${pro.id}`}
+                            className="fs-3 rounded-0 border-0 btn btn-secondary"
+                          >
+                            <IoIosEye />
+                          </Link>
+                        </div>
+                      </div>
                     </div>
-                    <div
-                      id="option-btns"
-                      className="position-absolute btn-group overflow-hidden rounded-start top-0 d-flex flex-column end-0"
-                    >
-                      {/*=========== add to cart btn ===========*/}
-                      <button
-                        onClick={() => {
-                          dispatch(AddToCart(pro));
-                          setAlertVisible(true);
-                        }}
-                        className="fs-3 rounded-0 border-0 btn btn-danger"
-                      >
-                        <RxPlusCircled />
-                      </button>
-                      <Link
-                        to={`${pro.id}`}
-                        className="fs-3 rounded-0 border-0 btn btn-secondary"
-                      >
-                        <IoIosEye />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))
-          ) : (
-            <div className="d-flex justify-content-center">
-              <h3 className="fw-bold">empty</h3>
-            </div>
-          )}
-          {/*=============== alert ========*/}
-          <div className="position-fixed w-auto justify-content-end p-6 start-0 d-flex flex-column h-50 bottom-0">
-            {alertVisible && (
-              <div className="alert alert-success">
-                <span className="fs-5 text-success">
-                  <FaCheck />
-                </span>
-                item added to cart
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            ) : (
+              <div className="d-flex justify-content-center">
+                <h3 className="fw-bold">empty</h3>
               </div>
             )}
-          </div>
-          {/* =========pages============= */}
-          <div className="d-flex gap-3 justify-content-center align-items-center">
-            <Pagination
-              itemsPerPage={ItemsPerPage}
-              setCurrentPage={setCurrentPage}
-              totalItems={products.length}
-              CurrentPage={CurrentPage}
-            />
-          </div>
+            {/*=============== alert ========*/}
+            <div className="position-fixed w-auto justify-content-end p-6 start-0 d-flex flex-column h-50 bottom-0">
+              {alertVisible && (
+                <div className="alert alert-success">
+                  <span className="fs-5 text-success">
+                    <FaCheck />
+                  </span>
+                  item added to cart
+                </div>
+              )}
+            </div>
+            {/* =========pages============= */}
+            <div className="d-flex gap-3 justify-content-center align-items-center">
+              <Pagination
+                itemsPerPage={ItemsPerPage}
+                setCurrentPage={setCurrentPage}
+                totalItems={products.length}
+                CurrentPage={CurrentPage}
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
     </motion.div>

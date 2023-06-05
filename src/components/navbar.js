@@ -10,15 +10,16 @@ export default function Navbar() {
   const [navbar, setNavbar] = useState(false);
   const [navBg, setNavBg] = useState("");
   const { pathname } = useLocation();
+  const [Toggle, setToggle] = useState(true);
   const cart = useSelector((state) => state.cart);
   //=============== change navbar style===========
   useEffect(() => {
     if (pathname === "/about") {
       setNavBg("#d4b3b1");
     } else if (pathname === "/") {
-      setNavBg("#d1bba7");
+      setNavBg("#edcfb3");
     } else if (pathname === "/products") {
-      setNavBg("#a2b8c3");
+      setNavBg("#accad9");
     } else {
       setNavBg("#fff");
     }
@@ -58,15 +59,24 @@ export default function Navbar() {
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbar"
+              onClick={() => setToggle((prev) => !prev)}
             >
-              <span className="navbar-toggler-icon"></span>
+              <span
+                className={
+                  Toggle ? "navbar-toggler-icon" : "btn btn-close fs-5"
+                }
+              ></span>
             </button>
             <div className={`text-center collapse navbar-collapse`} id="navbar">
               {/* ===========nav links=============== */}
               <ul className="list-unstyled navbar-nav justify-content-center mb-2 d-flex gap-3 mb-lg-0 mx-auto">
                 <li className="nav-item">
                   <NavLink className="fw-semibold nav-link p-0 m-2" to="/">
-                    <span data-bs-toggle="collapse" data-bs-target="#navbar">
+                    <span
+                      data-bs-toggle="collapse"
+                      onClick={() => setToggle((prev) => !prev)}
+                      data-bs-target="#navbar"
+                    >
                       Home
                     </span>
                   </NavLink>
@@ -76,7 +86,11 @@ export default function Navbar() {
                     className="fw-semibold nav-link p-0 m-2"
                     to="/products"
                   >
-                    <span data-bs-toggle="collapse" data-bs-target="#navbar">
+                    <span
+                      data-bs-toggle="collapse"
+                      onClick={() => setToggle((prev) => !prev)}
+                      data-bs-target="#navbar"
+                    >
                       products
                     </span>
                   </NavLink>
@@ -86,7 +100,11 @@ export default function Navbar() {
                     className="fw-semibold nav-link p-0 m-2 "
                     to="/about"
                   >
-                    <span data-bs-toggle="collapse" data-bs-target="#navbar">
+                    <span
+                      data-bs-toggle="collapse"
+                      onClick={() => setToggle((prev) => !prev)}
+                      data-bs-target="#navbar"
+                    >
                       about
                     </span>
                   </NavLink>

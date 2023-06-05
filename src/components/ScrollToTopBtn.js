@@ -14,7 +14,7 @@ export default function ScrollToTopBtn() {
       onClick={() => {
         window.scrollTo(0, 0);
       }}
-      style={{ transition: "all .5s ease" }}
+      style={{ transition: "all .5s ease" ,zIndex:69}}
       className={`position-fixed bottom-0 end-0 mb-3 me-3 mb-sm-5 me-sm-5 rounded-pill btn btn-dark px-2 py-1 border-2 border border-dark ${
         !displayed && "invisible opacity-0"
       }`}
