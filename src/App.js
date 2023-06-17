@@ -9,7 +9,7 @@ import React from "react";
 import Home from "./components/pages/home";
 import Products from "./components/pages/Products";
 import About from "./components/pages/about";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import ViewProduct from "./components/ViewProduct";
 import { AnimatePresence } from "framer-motion";
 import ScrollToTopBtn from "./components/ScrollToTopBtn";
@@ -20,6 +20,7 @@ export const imgHeroStyle = {
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
 };
+const location = useLocation();
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
       <Navbar />
       <SideCart />
       <AnimatePresence>
-        <Routes>
+        <Routes location={location} key={location.pathname} >
           <Route path="/" element={<Home />}></Route>
           <Route path="/products" element={<Products />}></Route>
           <Route path="/products/:productID" element={<ViewProduct />}></Route>
