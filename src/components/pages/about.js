@@ -16,7 +16,7 @@ export default function About() {
       <section>
         <div
           style={{
-            backgroundImage: " linear-gradient(#d4b3b1,#e8e7e7,#d4b3b1)",
+            background: "#e5cfce",
           }}
           className="vh-75"
         >
