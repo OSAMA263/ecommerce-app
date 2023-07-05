@@ -113,7 +113,7 @@ export default function Products() {
       <section className="about-page my-4">
         <div
           style={{
-            backgroundImage: "linear-gradient(#b4e8e1,#666d83,#b4e8e1)",
+            background: "#b8d7dd",
           }}
         >
           <div className="vh-75 d-flex justify-content-evenly align-items-center container-fluid-xl">
