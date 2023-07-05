@@ -23,7 +23,7 @@ export default function Home() {
       <section>
         <div
           style={{
-            backgroundImage: " linear-gradient(#ebded1,#edecea,#ebded1)",
+            background: "#f1e8df",
           }}
         >
           {/* ===========header=========== */}
