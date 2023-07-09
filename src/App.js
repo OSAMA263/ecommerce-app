@@ -1,7 +1,6 @@
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 import "./styles/custom.css";
-import "./styles/idk.css";
 import "./styles/main.scss";
 import Navbar from "./components/navbar";
 import SideCart from "./components/SideCart";
