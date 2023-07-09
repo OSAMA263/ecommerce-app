@@ -2,6 +2,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 import "./styles/custom.css";
 import "./styles/idk.css";
+import "./styles/main.scss";
 import Navbar from "./components/navbar";
 import SideCart from "./components/SideCart";
 import Footer from "./components/footer";
@@ -13,28 +14,28 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import ViewProduct from "./components/ViewProduct";
 import { AnimatePresence } from "framer-motion";
 import ScrollToTopBtn from "./components/ScrollToTopBtn";
-import CheckOutComp from "./components/CheckOutComp"
+import CheckOutComp from "./components/CheckOutComp";
 
 export const imgHeroStyle = {
   maxHeight: "75vh",
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
 };
-const location = useLocation();
 
 function App() {
+  const location = useLocation();
   return (
     <div className="App">
       <ScrollToTopBtn />
       <Navbar />
       <SideCart />
       <AnimatePresence>
-        <Routes location={location} key={location.pathname} >
+        <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />}></Route>
           <Route path="/products" element={<Products />}></Route>
           <Route path="/products/:productID" element={<ViewProduct />}></Route>
           <Route path="/about" element={<About />}></Route>
-          <Route path="/checkout" element={<CheckOutComp/>}></Route>
+          <Route path="/checkout" element={<CheckOutComp />}></Route>
         </Routes>
       </AnimatePresence>
       <Footer />

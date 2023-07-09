@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import background from "../../imgs/products-bg.png";
-import { imgHeroStyle } from "../../App";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../rtk/slices/ProductsSlice";
 import { RxPlusCircled } from "react-icons/rx";
@@ -11,6 +10,7 @@ import Pagination from "../Pagination";
 import { AnimatePresence, motion } from "framer-motion";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Hero_pages from "../Hero_pages";
 
 export default function Products() {
   const dispatch = useDispatch();
@@ -18,8 +18,7 @@ export default function Products() {
   const cart = useSelector((state) => state.cart);
 
   const [isActive, setIsActive] = useState("all");
-  const [alertVisible, setAlertVisible] = useState(false);
-
+  
   const [CurrentPage, setCurrentPage] = useState(1);
   const [ItemsPerPage, setItemsPerPage] = useState(9);
   const lastIndex = CurrentPage * ItemsPerPage;
@@ -118,13 +117,8 @@ export default function Products() {
         >
           <div className="vh-75 d-flex justify-content-evenly align-items-center container-fluid-xl">
             <div className="w-lg-50 w-75 d-none d-md-block h-xl-100 h-75 mt-auto overflow-hidden d-flex">
-              {/*=========== header ===========*/}
-              <img
-                src={background}
-                className="w-100 w-xl-auto mt-auto"
-                alt=""
-                style={imgHeroStyle}
-              />
+              {/*=========== hero ===========*/}
+              <Hero_pages cls="w-100 w-xl-auto mt-auto" url={background}/>
             </div>
             <div className="text-uppercase d-flex flex-column">
               <h1 className="display-4 fw-light mb-0">Lorem, ipsum dolor.</h1>

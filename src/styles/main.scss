@@ -1,0 +1,148 @@
+/* i got lazy and im not makeing a file for every component */
+/* figure out whaht does what gl */
+/* about */
+.about::after {
+  margin-top: 4rem;
+  content: "";
+  display: block;
+  width: 25%;
+  height: 1px;
+  background-color: rgb(182, 182, 182);
+  margin-inline: auto;
+}
+/* navbar */
+.nav-link {
+  font-size: 1.1rem;
+}
+/* home page */
+.discover_more {
+  text-decoration: none;
+  color: black;
+  transition: 0.5s ease;
+  &::after {
+    content: "";
+    position: relative;
+    display: block;
+    width: 20%;
+    background-color: black;
+    height: 2px;
+    transition: 0.5s ease;
+  }
+  &:hover {
+    color: rgb(44, 44, 44);
+  }
+  &:hover::after {
+    width: 100%;
+    background-color: red;
+  }
+}
+@media only screen and (max-width: 720px) {
+  #hero-home {
+    width: 250px;
+    overflow: hidden;
+    background-size: contain;
+  }
+} 
+/* flip card */
+.flip-card {
+  perspective: 400px;
+  height: 280px;
+  &:hover > .card {
+    cursor: pointer;
+    transform: rotateY(-180deg);
+  }
+  .card {
+    transform-style: preserve-3d;
+    transition: 1s ease;
+  }
+}
+.card-front,
+.card-back {
+  backface-visibility: hidden;
+}
+.card-back {
+  transform: rotateY(-180deg);
+}
+/* products */
+img {
+  transition: 0.4s cubic-bezier(0, -1.55, 1, -0.49);
+}
+#product {
+  &:hover #option-btns {
+    margin-right: 0;
+    opacity: 1;
+  }
+  &:hover > .card {
+    scale: 1.04;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  }
+  #option-btns {
+    transition: 0.5s ease, opacity 0.3s;
+    margin-right: -2.2rem;
+    opacity: 0;
+  }
+}
+#product,
+#item,
+.card {
+  transition: 0.5s ease;
+}
+#item {
+  &:hover {
+    background-color: rgb(238, 238, 255);
+    cursor: pointer;
+    color: gray !important;
+  }
+}
+/* product details */
+.pro-details-imgs {
+  transition: 0.5s ease;
+  cursor: pointer;
+  &:hover {
+    opacity: 70%;
+    border: 1px gray solid;
+  }
+}
+img.active {
+  border: 1px gray solid;
+  scale: 1.1;
+  opacity: 50%;
+}
+@media only screen and (max-width: 1168px) {
+  #displayed-image {
+    width: 210px;
+    height: 230px;
+  }
+}
+/* footer */
+#facebook-link,
+#instagram-link,
+#twitter-link {
+  cursor: pointer;
+  transition: background 0.4s ease;
+  &:hover {
+    color: black !important;
+    background: white !important;
+  }
+}
+.btn {
+  transition: 0.5s ease;
+}
+/* checkout */
+#modal {
+  transition: 0.5s ease;
+  z-index: 69696969;
+  background-color: rgba(14, 14, 14, 0.445);
+  #modal-body {
+    background-color: #fff;
+    height: 9rem;
+  }
+}
+.form-control:focus {
+  box-shadow: 0 0 5px 0.5px #4ada7a !important;
+  outline: 0px !important;
+}
+.lazy-load-image-background {
+  overflow: hidden;
+  display: flex !important;
+}

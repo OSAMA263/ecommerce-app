@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import background from "../../imgs/home-bg.png";
-import { imgHeroStyle } from "../../App";
 import { useEffect } from "react";
 import { fetchProducts } from "../../rtk/slices/ProductsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { motion } from "framer-motion";
+import Hero_pages from "../Hero_pages";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ export default function Home() {
               </div>
             </div>
             <div className="w-md-auto d-none d-md-block w-50">
-              <img style={imgHeroStyle}src={background} alt="" />
+              <Hero_pages cls="" url={background} />
             </div>
           </div>
         </div>
@@ -49,49 +49,45 @@ export default function Home() {
             new products
           </h1>
         </div>
-        <div className="mt-3" style={{backgroundColor:"rgba(245, 238, 231, 0.71)"}}>
-        <div className="row justify-content-evenly gap-3 g-3 w-65 mx-auto">
-          <div className="front-card"></div>
-          <div className="back-card"></div>
-          {products.length > 0 ? (
-            products.slice(10, 19).map((pro) => (
-              <div key={pro.id} className="col-xl-3 col-lg-5 col-sm-6 col-12" id="home-product">
+        <div
+          className="mt-3"
+          style={{ backgroundColor: "rgba(245, 238, 231, 0.71)" }}
+        >
+          <div className="row justify-content-evenly gap-3 g-3 w-65 mx-auto">
+            <div className="front-card"></div>
+            <div className="back-card"></div>
+            {products.length > 0 ? (
+              products.slice(10, 19).map((pro) => (
                 <div
-                  className="flip-card mb-4"
-                  style={{
-                    perspective: "400px",
-                    height: "280px",
-                  }}
+                  key={pro.id}
+                  className="col-xl-3 col-lg-5 col-sm-6 col-12"
+                  id="home-product"
                 >
-                  <div
-                    style={{
-                      transformStyle: "preserve-3d",
-                      transition: "1s ease",
-                    }}
-                    className="card h-100 w-100 shadow-sm rounded-5 position-relative"
-                  >
-                    <div className="card-back bg-dark rounded-5 position-absolute h-100 w-100 d-flex justify-content-center align-items-center flex-column p-3 text-center gap-3">
-                      <h5 className="fw-bold text-light">{pro.title}</h5>
-                      <Link
-                        to={`products/${pro.id}`}
-                        className="btn btn-outline-light rounded-4"
-                      >
-                        more details
-                      </Link>
-                    </div>
-                    <div className="card-front rounded-5 position-absolute p-3 h-100 w-100 d-flex justify-content-center">
-                      <img className="w-100" src={pro.image} alt="" />
+                  <div className="flip-card mb-4">
+                    <div className="card h-100 w-100 shadow-sm rounded-5 position-relative">
+                      <div className="card-back bg-dark rounded-5 position-absolute h-100 w-100 d-flex justify-content-center align-items-center flex-column p-3 text-center gap-3">
+                        <h5 className="fw-bold text-light">{pro.title}</h5>
+                        <Link
+                          to={`products/${pro.id}`}
+                          className="btn btn-outline-light rounded-4"
+                        >
+                          more details
+                        </Link>
+                      </div>
+                      <div className="card-front rounded-5 position-absolute p-3 h-100 w-100 d-flex justify-content-center">
+                        <img className="w-100" src={pro.image} alt="" />
+                      </div>
                     </div>
                   </div>
                 </div>
+              ))
+            ) : (
+              <div className="d-flex justify-content-center">
+                <h3 className="fw-bold">Loading...</h3>
               </div>
-            ))
-          ) : (
-            <div className="d-flex justify-content-center">
-              <h3 className="fw-bold">Loading...</h3>
-            </div>
-          )}
-        </div></div>
+            )}
+          </div>
+        </div>
       </section>
     </motion.div>
   );

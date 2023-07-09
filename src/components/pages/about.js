@@ -1,10 +1,10 @@
 import React from "react";
-import { imgHeroStyle } from "../../App";
 import background from "../../imgs/about-bg.png";
 import about1 from "../../imgs/about-img.jpg";
 import about2 from "../../imgs/about-img1.jpg";
 import about3 from "../../imgs/about-img2.png";
 import { motion } from "framer-motion";
+import Hero_pages from "../Hero_pages";
 
 export default function About() {
   return (
@@ -20,13 +20,8 @@ export default function About() {
           }}
           className="vh-75"
         >
-          <div className="w-100 w-md-100 h-100 justify-content-center flex-column d-flex">
-            <img
-              src={background}
-              style={imgHeroStyle}
-              alt=""
-              className="w-sm-auto w-lg-75 h-md-auto mt-auto d-none d-sm-block h-85 "
-            />
+          <div className="w-100 w-md-100 h-100 justify-content-end flex-column d-flex">
+          <Hero_pages cls="w-sm-auto w-lg-75 h-md-auto mt-auto d-none d-sm-block h-85" url={background}/>
             <div className="text-uppercase w-100 text-center gap-3 d-flex flex-column d-sm-none">
               <p className="fs-3 lead">about us</p>
               <h1
