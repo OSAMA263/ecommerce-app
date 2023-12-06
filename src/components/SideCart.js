@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function SideCart() {
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.myCart);
   const dispatch = useDispatch();
 
   return (

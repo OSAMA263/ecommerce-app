@@ -15,7 +15,6 @@ import Hero_pages from "../Hero_pages";
 export default function Products() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
-  const cart = useSelector((state) => state.cart);
 
   const [isActive, setIsActive] = useState("all");
   
@@ -65,11 +64,6 @@ export default function Products() {
   useEffect(() => {
     setCloneProducts(products);
   }, [products]);
-
-  // update the LS cart
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cart]);
 
   // animation products
   const parentVariants = {

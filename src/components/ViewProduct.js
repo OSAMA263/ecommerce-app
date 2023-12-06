@@ -37,9 +37,9 @@ export default function ViewProduct() {
     });
 
   // update the LS cart
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.myCart);
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("myCart", JSON.stringify(cart));
   }, [cart]);
 
   // change product image on click

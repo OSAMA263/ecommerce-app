@@ -5,7 +5,7 @@ import "./styles/main.scss";
 import Navbar from "./components/navbar";
 import SideCart from "./components/SideCart";
 import Footer from "./components/footer";
-import React from "react";
+import React, { useEffect } from "react";
 import Home from "./components/pages/home";
 import Products from "./components/pages/Products";
 import About from "./components/pages/about";
@@ -14,6 +14,7 @@ import ViewProduct from "./components/ViewProduct";
 import { AnimatePresence } from "framer-motion";
 import ScrollToTopBtn from "./components/ScrollToTopBtn";
 import CheckOutComp from "./components/CheckOutComp";
+import { useSelector } from "react-redux";
 
 export const imgHeroStyle = {
   maxHeight: "75vh",
@@ -22,6 +23,12 @@ export const imgHeroStyle = {
 };
 
 function App() {
+  // update the LS cart
+  const cart = useSelector((state) => state.myCart);
+  useEffect(() => {
+    localStorage.setItem("myCart", JSON.stringify(cart));
+  }, [cart]);
+
   const location = useLocation();
   return (
     <div className="App">

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { useEffect } from "react";
 
 export default function CheckOutComp() {
-  const products = useSelector((state) => state.cart);
+  const products = useSelector((state) => state.myCart);
   const dispatch = useDispatch();
   const [isActive, setIsActive] = useState(false);
   const [User, setUser] = useState({});
@@ -142,7 +142,7 @@ export default function CheckOutComp() {
             </motion.form>
           </div>
           {/* products in order */}
-          <div className="col-lg-5 col-12 overflow-scroll" style={{height:"457px",overflowX:"hidden"}}>
+          <div className="col-lg-5 col-12" style={{height:"457px",overflowY:"scroll"}}>
             <table className="table table-striped">
               <thead>
                 <tr>

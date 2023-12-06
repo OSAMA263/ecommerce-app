@@ -11,7 +11,7 @@ export default function Navbar() {
   const [navBg, setNavBg] = useState("");
   const { pathname } = useLocation();
   const [Toggle, setToggle] = useState(true);
-  const cart = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.myCart);
   //=============== change navbar style===========
   useEffect(() => {
     if (pathname === "/about") {
